@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Main Page {% endblock %}
+
+{% block content %}
+
+<h1> PHQ-9 Questionaire </h1>
+
+<form id="questionaire-form">
+    {% for question in questions %}
+    <div>
+        <label>{{ question }}</label>
+        <input type="range" min="0" max="3" name ="{{ loop.index }}" id="{{ loop.index }}" required>
+        <span id="score-{{ loop.index }}"></span>
+    </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
